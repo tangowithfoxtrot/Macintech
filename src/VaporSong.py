@@ -10,7 +10,7 @@ class VaporSong:
 	# Slows downs audio file "src" by "rate" and returns the file called dest.
 	@staticmethod
 	def slow_down(src, rate, dest):
-		cmd = "sox " + src + " " + dest + " speed " + str(rate)
+		cmd = "sox -G -D " + src + " " + dest + " speed " + str(rate)
 		os.system(cmd)
 		return dest
 
@@ -18,7 +18,7 @@ class VaporSong:
 	# Reverbs the file in "src" and returns it in "dest"
 	@staticmethod
 	def reverbize(src, dest):
-		cmd = "sox " + src + " " + dest + " reverb 100"
+		cmd = "sox -G -D " + src + " " + dest + " reverb 100 fade 0 -0 7"
 		os.system(cmd)
 		return dest
 
